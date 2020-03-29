@@ -3,7 +3,6 @@ package coding;
 public class bdsan implements chucnang {
     private String iD;
     private String type;
-    private String province;
     private String district;
     private String value;
     private String area;
@@ -25,14 +24,6 @@ public class bdsan implements chucnang {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
     }
 
     public String getDistrict() {
