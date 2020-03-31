@@ -1,6 +1,6 @@
 package coding;
 
-public class bdsan implements chucnang {
+public class bdsan  {
     private String iD;
     private String type;
     private String district;
