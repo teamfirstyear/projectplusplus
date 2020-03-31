@@ -1,7 +1,7 @@
 package coding.func;
 import java.util.List;
 
-public class Workwithurl {
+public abstract class Workwithurl<T> {
     public abstract class ParserfromHtml<T> {
         public abstract List<String> listLink(String url);
 
