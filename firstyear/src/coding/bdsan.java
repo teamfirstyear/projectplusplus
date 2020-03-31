@@ -2,13 +2,31 @@ package coding;
 
 public class bdsan  {
     private String iD;
-    private String type;
+    private String day;
     private String district;
     private String value;
     private String area;
     private String timesell;
     private String phonenum;
     private String status;
+    private String seller;
+    private String directhome;
+
+    public String getDirecthome() {
+        return directhome;
+    }
+
+    public void setDirecthome(String directhome) {
+        this.directhome = directhome;
+    }
+
+    public String getSeller() {
+        return seller;
+    }
+
+    public void setSeller(String seller) {
+        this.seller = seller;
+    }
 
     public String getiD() {
         return iD;
@@ -18,12 +36,12 @@ public class bdsan  {
         this.iD = iD;
     }
 
-    public String getType() {
-        return type;
+    public String getDay() {
+        return day;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setDay(String day) {
+        this.day = day;
     }
 
     public String getDistrict() {
