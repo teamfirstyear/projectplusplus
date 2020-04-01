@@ -85,7 +85,7 @@ public class bdsan  {
 
     @Override
     public String toString() {
-        return {
+        return 
                 "Mã bài đăng= " + iD + ", Ngày đăng= " + day +", Trạng thái='" + status + " Địa chỉ= "
                         + district +", Giá trị='" + value + ", directhome='" + directhome+
                 ", Diện tích= " + area +", Người rao='" + seller +
