@@ -6,7 +6,6 @@ public class bdsan  {
     private String district;
     private String value;
     private String area;
-    private String timesell;
     private String phonenum;
     private String status;
     private String seller;
@@ -68,14 +67,6 @@ public class bdsan  {
         this.area = area;
     }
 
-    public String getTimesell() {
-        return timesell;
-    }
-
-    public void setTimesell(String timesell) {
-        this.timesell = timesell;
-    }
-
     public String getPhonenum() {
         return phonenum;
     }
@@ -90,5 +81,14 @@ public class bdsan  {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return {
+                "Mã bài đăng= " + iD + ", Ngày đăng= " + day +", Trạng thái='" + status + " Địa chỉ= "
+                        + district +", Giá trị='" + value + ", directhome='" + directhome+
+                ", Diện tích= " + area +", Người rao='" + seller +
+                ", Điện thoại liên lạc= " + phonenum;
     }
 }

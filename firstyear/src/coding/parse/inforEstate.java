@@ -18,44 +18,33 @@ public class inforEstate extends ParserfromHtml<bdsan> {
     public bdsan parserclone(String url) {
         Document html = getHtmlcontent((url));
         bdsan result = new bdsan();
-        String iD="";
-        String day="";
-        String district="";
-        String value ="";
-        String timesell ="";
-        String phonenum ="";
-        String status ="";
-        String seller="";
-        String directhome ="";
-        String area ="";
+        String moreinf =html.selectFirst("div.prd-more-info").text();
+        String[] giatitle =html.select("span.gia-title").text().split("Diện tích: ");
 
-        ////bắt đàu sợt///
-        Element pros = html.selectFirst("div.kqchitiet");
-        Elements child = pros.children();
-        for (int i=0;i<child.size();i++){
-            if(child.get(i).ownText().equals("Loại tin rao")){
-                status = child.get(i+1).ownText();
-            }
-            if(child.get(i).ownText().equals("Địa chỉ")){
-                district =child.get(i+1).ownText();
-            }
-            if(child.get(i).ownText().equals("Hướng nhà")){
-                directhome= child.get(i+1).ownText();
-            }
-            if (child.get(i).ownText().equals("Tên liên lạc")){
-                seller=child.get(i+1).ownText();
-            }
-            if(child.get(i).ownText().equals("Mobile")){
-                phonenum =child.get(i+1).ownText();
-            }
-            if (child.get(i).ownText().equals("Mã tin đăng")){
-                iD =child.get(i+1).ownText();
-            }if (child.get(i).ownText().equals("Ngày đăng")){
-                day=child.get(i+1).ownText();
-            }
+        String seller=html.select("div#LeftMainContent__productDetail_contactName.right-content").text().replace("Tên liên lạc ","");
+
+        String phonenum=html.select("div#LeftMainContent__productDetail_contactMobile.right-content").text().replace("Mobile ","");
+        String directhome =html.select("div.LeftMainContent__productDetail_direction.row").text();
+        String [] address =html.select("span.diadiem-title.mar-right-15").text().split(" tại ");
+        String district =address[1];
+        String status =html.selectFirst("div.right").text();
+        String value =giatitle[0].replace("Giá: ","");
+        String area =giatitle[1];
+
+        String iD =moreinf.substring(13,21);
+        String day=moreinf.substring(70,80);
 
 
-        }
+        result.setArea(area);
+        result.setDay(day);
+        result.setDirecthome(directhome);
+        result.setDistrict(district);
+        result.setiD(iD);
+        result.setPhonenum(phonenum);
+        result.setSeller(seller);
+        result.setStatus(status);
+        result.setValue(value);
+
 
         return result;
     }
