@@ -16,6 +16,7 @@ import java.util.List;
 public class inforEstate extends ParserfromHtml<bdsan> {
     @Override
     public bdsan parserclone(String url) {
+
         Document html = getHtmlcontent((url));
         bdsan result = new bdsan();
         String moreinf =html.selectFirst("div.prd-more-info").text();
