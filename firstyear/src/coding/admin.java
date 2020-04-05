@@ -1,13 +1,13 @@
 package coding;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
-import coding.bdsan;
 import coding.parse.inforEstate;
 
 public class admin{
-    public void thaoTac_admin(String bat_dau_Tuong_Tac) {
+    public void thaoTac_admin() {
+//          Yêu cầu admin làm những công việc
+                    //// bằng cách thực hiện các hàm trong class này
 //        1. Nhap du lieu
 //        2. Cap nhat du lieu
     }
@@ -18,7 +18,7 @@ public class admin{
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
-            fileWriter = new FileWriter("", true);
+            fileWriter = new FileWriter("src/databasefromlink.txt", true);
             bufferedWriter = new BufferedWriter(fileWriter);
             for (int i = 0; i < linkArray.size(); i++) {
                 bufferedWriter.write(iE.parserclone(linkArray.get(i)).toString());

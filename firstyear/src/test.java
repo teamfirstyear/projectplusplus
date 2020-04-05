@@ -9,19 +9,25 @@ public class test {
         Scanner sc =new Scanner(System.in);
         String url = "https://batdongsan.com.vn/nha-dat-ban-ha-noi";
         System.out.println("Xin chào, tôi là firstyearteam, người sẽ giúp bạn trong ngành bất động sản!");
-        System.out.print("Xin cho biết bạn là admin hay là khách hàng: ");
-        String bat_dau_Tuong_Tac=sc.nextLine();
         String finishpro ="";
         do {
+            System.out.print("Xin cho biết bạn là admin hay là khách hàng: ");
+            String bat_dau_Tuong_Tac=sc.nextLine();
             if (bat_dau_Tuong_Tac.trim().equalsIgnoreCase("admin")) {
+                String inpass ="";
+                do {
+                    System.out.println("password :");
+                     inpass =sc.nextLine();
+                }while(!inpass.equals(password));
                 admin admin = new admin();
-                admin.thaoTac_admin(bat_dau_Tuong_Tac);
-                finishpro=sc.nextLine();
+                admin.thaoTac_admin();
             } else if (bat_dau_Tuong_Tac.trim().equalsIgnoreCase("khách hàng")) {
                 client client = new client();
-                client.thao_Tac_client(bat_dau_Tuong_Tac);
-                finishpro=sc.nextLine();
+                client.thao_Tac_client();
             }
+            System.out.print("Kết thúc chương trình bằng \"x\", ");
+            System.out.println("Ấn bất kì phím khác để tiếp tục chương trình");
+            finishpro=sc.nextLine();
         }while (!finishpro.equals("x"));
     }
 
