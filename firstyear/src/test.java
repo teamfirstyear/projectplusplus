@@ -1,10 +1,12 @@
 import coding.bdsan;
+
+import java.io.IOException;
 import java.util.Scanner;
 import coding.admin;
 import coding.client;
 public class test {
     public static final String password="teamfirstyear";
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         bdsan bdsan =new bdsan();
         Scanner sc =new Scanner(System.in);
         String url = "https://batdongsan.com.vn/nha-dat-ban-ha-noi";
@@ -19,8 +21,13 @@ public class test {
                     System.out.println("password :");
                      inpass =sc.nextLine();
                 }while(!inpass.equals(password));
-                admin admin = new admin();
-                admin.thaoTac_admin();
+                try {
+                    admin admin = new admin();
+                    admin.thaoTac_admin();
+                }catch (IOException e){
+                    System.out.println(e);
+                }
+
             } else if (bat_dau_Tuong_Tac.trim().equalsIgnoreCase("khách hàng")) {
                 client client = new client();
                 client.thao_Tac_client();

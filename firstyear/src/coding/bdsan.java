@@ -3,7 +3,7 @@ package coding;
 public class bdsan  {
     private String iD;
     private String day;
-    private String district;
+    private String address;
     private String value;
     private String area;
     private String phonenum;
@@ -14,10 +14,10 @@ public class bdsan  {
     public bdsan() {
     }
 
-    public bdsan(String iD, String day, String district, String value, String area, String phonenum, String status, String seller, String directhome) {
+    public bdsan(String iD, String day, String address, String value, String area, String phonenum, String status, String seller, String directhome) {
         this.iD = iD;
         this.day = day;
-        this.district = district;
+        this.address = address;
         this.value = value;
         this.area = area;
         this.phonenum = phonenum;
@@ -58,12 +58,12 @@ public class bdsan  {
         this.day = day;
     }
 
-    public String getDistrict() {
-        return district;
+    public String getAddress() {
+        return address;
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getValue() {
@@ -101,9 +101,9 @@ public class bdsan  {
     @Override
     public String toString() {
         return 
-                "Mã bài đăng= " + iD + ", Ngày đăng= " + day +", Trạng thái='" + status + " Địa chỉ= "
-                        + district +", Giá trị='" + value + ", directhome='" + directhome+
-                ", Diện tích= " + area +", Người rao='" + seller +
-                ", Điện thoại liên lạc= " + phonenum;
+                "Mã bài đăng= " + iD + "// Ngày đăng= " + day +"// Trạng thái= " + status + "// Địa chỉ= "
+                        + address +"// Giá trị='" + value + "// Hướng nhà='" + directhome+
+                "// Diện tích= " + area +"// Người rao='" + seller +
+                "// Điện thoại liên lạc= " + phonenum;
     }
 }

@@ -27,7 +27,7 @@ public class inforEstate extends ParserfromHtml<bdsan> {
         String phonenum=html.select("div#LeftMainContent__productDetail_contactMobile.right-content").text().replace("Mobile ","");
         String directhome =html.select("div.LeftMainContent__productDetail_direction.row").text();
         String [] address =html.select("span.diadiem-title.mar-right-15").text().split(" tại ");
-        String district =address[1];
+        String addresss =address[1];
         String status =html.selectFirst("div.right").text();
         String value =giatitle[0].replace("Giá: ","");
         String area =giatitle[1];
@@ -39,7 +39,7 @@ public class inforEstate extends ParserfromHtml<bdsan> {
         result.setArea(area);
         result.setDay(day);
         result.setDirecthome(directhome);
-        result.setDistrict(district);
+        result.setAddress(addresss);
         result.setiD(iD);
         result.setPhonenum(phonenum);
         result.setSeller(seller);
@@ -55,7 +55,7 @@ public class inforEstate extends ParserfromHtml<bdsan> {
         Document html =getHtmlcontent(url);
         Elements elements=html.select("h3");
         List<String> arrlink= new ArrayList<>();
-        for (int i=0;i<elements.size();i++){
+        for (int i=0;i<20;i++){
             Element element =elements.get(i);
             String link = element.select("a").attr("href");
             arrlink.add("https://batdongsan.com.vn/nha-dat-ban-ha-noi/"+link);
