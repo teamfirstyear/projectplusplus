@@ -11,6 +11,21 @@ public class bdsan  {
     private String seller;
     private String directhome;
 
+    public bdsan() {
+    }
+
+    public bdsan(String iD, String day, String district, String value, String area, String phonenum, String status, String seller, String directhome) {
+        this.iD = iD;
+        this.day = day;
+        this.district = district;
+        this.value = value;
+        this.area = area;
+        this.phonenum = phonenum;
+        this.status = status;
+        this.seller = seller;
+        this.directhome = directhome;
+    }
+
     public String getDirecthome() {
         return directhome;
     }
