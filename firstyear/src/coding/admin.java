@@ -1,8 +1,8 @@
 package coding;
 
 import java.io.*;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+
 import coding.parse.inforEstate;
 
 public class admin{
@@ -12,6 +12,7 @@ public class admin{
 //        1. Nhap du lieu
 //       x 2. Cap nhat du lieu
         admin admin = new admin();
+        Random rand = new Random();
         Scanner scanner = new Scanner(System.in);
         int nhap_Lua_Chon=0;
         System.out.println("Xin chao Admin.");
@@ -30,10 +31,26 @@ public class admin{
                     nhap_Lua_Chon = scanner.nextInt();
                     break;                                              ////bro thiếu break rồi:))
                 case 2:
+                    inforEstate iE = new inforEstate();
+                    String[] extralink=new String[3];
+                    extralink[0]="/nha-dat-ban-hoan-kiem";
+                    extralink[1]="/nha-dat-ban-hoang-mai";
+                    extralink[2]="/nha-dat-ban-nam-tu-liem";
+                    String link=extralink[rand.nextInt(3)];///1 trong 3 link kia
+                    List<String> listLink = iE.listLink(link);
+                    HashMap<String,String> listBdsSethem= new HashMap<>();
+                    for(int i=0;i<20;i++){
+                        bdsan doituong = new bdsan();
+                        doituong=iE.parserclone(listLink.get(i));
+                        listBdsSethem.put(doituong.getiD(),doituong.toString());
+                    }
+                    //////// Chỗ này tôi thêm hộ bro 1 cái HashMap chứa (iD, String dữ liệu bds sẽ thêm )
+                    ///// Bro cần tạo thêm cái HashMap(iD, String dữ liệu bất động sản "ĐÃ" có trong text để so sánh)
+                    ////Đã fix ý tưởng của bro (Comment 0h30)
                     FileReader fileReader = new FileReader("src/databasefromlink");
                     BufferedReader bufferedReader = new BufferedReader(fileReader);
                     String line = "";
-                    int i =0;
+                    int i =0;                                               ////Comment từ 23h30
                     String [] data = new String[100];                       /////////// chỗ này nên dùng HashMap nhé
                     while ((line = bufferedReader.readLine()) != null){     /////dùng HashMap nó sẽ tự động xóa bớt mấy cái trùng, không cần IF
                         data[i] = line;                                     //// :)) lưu như này dài
