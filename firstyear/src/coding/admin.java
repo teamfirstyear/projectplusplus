@@ -40,7 +40,8 @@ public class admin{
                     List<String> listLink = iE.listLink(link);
                     HashMap<String,String> listBdsSethem= new HashMap<>();
                     for(int i=0;i<20;i++){
-                        bdsan doituong = iE.parserclone(listLink.get(i));
+                        bdsan doituong = new bdsan();
+                        doituong=iE.parserclone(listLink.get(i));
                         listBdsSethem.put(doituong.getiD(),doituong.toString());
                     }
                     //////// Chỗ này tôi thêm hộ bro 1 cái HashMap chứa (iD, String dữ liệu bds sẽ thêm )
