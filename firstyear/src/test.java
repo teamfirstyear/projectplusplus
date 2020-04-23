@@ -6,7 +6,7 @@ import coding.admin;
 import coding.client;
 public class test {
     public static final String password="teamfirstyear";
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args)  {
         bdsan bdsan =new bdsan();
         Scanner sc =new Scanner(System.in);
         String url = "https://batdongsan.com.vn/nha-dat-ban-ha-noi";
