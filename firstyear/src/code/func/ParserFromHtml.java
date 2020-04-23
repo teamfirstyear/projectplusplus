@@ -1,24 +1,33 @@
-package coding.parse;
+package code.func;
 
+import code.ob.Batdongsan;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import coding.bdsan;
-import coding.func.ParserfromHtml;
 
 import java.util.ArrayList;
 import java.util.List;
 
+public  class ParserFromHtml {
 
-/////bắt chước anh Kiểm:))))))////
-public class inforEstate extends ParserfromHtml<bdsan> {
-    @Override
-    public bdsan parserclone(String url) {
+public ParserFromHtml(){
+    WriteHTMLtoList();
+}
+    public List<Batdongsan> WriteHTMLtoList(){
+        List<Batdongsan> batdongsanList= new ArrayList<>();
+        String url = "https://batdongsan.com.vn/nha-dat-ban-ha-noi/";
+        List<String> linkArray= listLink(url);
+        for (int i=0;i<linkArray.size();i++){
+            batdongsanList.add(parserclone(linkArray.get(i)));
+        }
+        return batdongsanList;
+    }
+    public Batdongsan parserclone(String url){
 
         Document html = getHtmlcontent((url));
-        bdsan result = new bdsan();
+        Batdongsan result = new Batdongsan();
         String moreinf =html.selectFirst("div.prd-more-info").text();
         String[] giatitle =html.select("span.gia-title").text().split("Diện tích: ");
 
@@ -47,8 +56,6 @@ public class inforEstate extends ParserfromHtml<bdsan> {
 
         return result;
     }
-
-    @Override
     public List<String> listLink(String url) {
         Document html =getHtmlcontent(url);
         Elements elements=html.select("h3");

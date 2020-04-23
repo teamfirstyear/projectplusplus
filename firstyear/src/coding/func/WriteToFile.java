@@ -1,3 +1,5 @@
 package coding.func;
 
-public abstract class WriteToFile{};
+public abstract class WriteToFile{
+
+}

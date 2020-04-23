@@ -1,4 +1,4 @@
-package coding;
+package coding.func;
 import coding.bdsan;
 
 import java.util.List;

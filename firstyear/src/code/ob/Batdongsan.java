@@ -1,6 +1,6 @@
-package coding;
+package code.ob;
 
-public class bdsan  {
+public class Batdongsan {
     private String iD;
     private String day;
     private String address;
@@ -10,37 +10,11 @@ public class bdsan  {
     private String status;
     private String seller;
 
-
-    public bdsan() {
-    }
-
-    public bdsan(String iD, String day, String address, String value, String area, String phonenum, String status, String seller) {
-        this.iD = iD;
-        this.day = day;
-        this.address = address;
-        this.value = value;
-        this.area = area;
-        this.phonenum = phonenum;
-        this.status = status;
-        this.seller = seller;
-
-    }
-
-
-
-    public String getSeller() {
-        return seller;
-    }
-
-    public void setSeller(String seller) {
-        this.seller = seller;
-    }
-
     public String getiD() {
         return iD;
     }
 
-    public void setiD(String iD) {      //////// đếm số bất động sản tìm được với 5 số VD:00001, 00002,....//////
+    public void setiD(String iD) {
         this.iD = iD;
     }
 
@@ -92,12 +66,24 @@ public class bdsan  {
         this.status = status;
     }
 
+    public String getSeller() {
+        return seller;
+    }
+
+    public void setSeller(String seller) {
+        this.seller = seller;
+    }
+
     @Override
     public String toString() {
-        return 
-                "Mã bài đăng= " + iD + "// Ngày đăng= " + day +"// Trạng thái= " + status + "// Địa chỉ= "
-                        + address +"// Giá trị='" + value  +
-                "// Diện tích= " + area +"// Người rao='" + seller +
-                "// Điện thoại liên lạc= " + phonenum;
+        return
+                 iD + " " +
+                 day + " " +
+                 address + " " +
+                 value + " " +
+                 area + " " +
+                 phonenum + " " +
+                 status + " " +
+                 seller ;
     }
 }
