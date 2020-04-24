@@ -31,9 +31,11 @@ public class KhachHang extends WorkWithList {
     }
 
     private  String phonecl;
+
     public KhachHang(){
         khachHangWork();
     }
+
     public void khachHangWork(){
 
     }

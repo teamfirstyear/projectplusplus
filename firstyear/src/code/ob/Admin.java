@@ -3,6 +3,8 @@ package code.ob;
 
 import code.func.WorkWithList;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.List;
 import java.util.Scanner;
 
@@ -43,8 +45,13 @@ public class Admin extends WorkWithList {
                     }
                 break;
                 case 2:
-
-
+                    System.out.println("Hien thi du lieu: ");
+                    try {
+                        showList();
+                    }
+                    catch (Exception e){
+                        System.out.println(e);
+                    }
             }
         }while(choice==3);
 

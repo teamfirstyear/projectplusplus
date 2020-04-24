@@ -2,10 +2,7 @@ package code.func;
 
 import code.ob.Batdongsan;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,6 +67,34 @@ public abstract class WorkWithList {
 
         }
 
+    }
+
+    public void showList() throws IOException {
+        FileReader fileReader = null;
+        BufferedReader bufferedReader = null;
+        try {
+            fileReader = new FileReader("src/databasefromlink");
+            bufferedReader = new BufferedReader(fileReader);
+            String line = "";
+
+            if ((line = bufferedReader.readLine()) != null){
+                while ((line = bufferedReader.readLine()) != null){
+                    System.out.println(line);
+                }
+            }
+            else {
+                System.out.println("Chưa có dữ liệu. Hãy nạp dữ liệu trước.");
+            }
+
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            fileReader.close();
+            bufferedReader.close();
+        }
     }
 
 
