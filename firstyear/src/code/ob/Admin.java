@@ -1,6 +1,7 @@
 package code.ob;
 
 
+import code.func.ParserFromHtml;
 import code.func.WorkWithList;
 
 import java.io.BufferedReader;
@@ -10,7 +11,9 @@ import java.util.Scanner;
 
 public class Admin extends WorkWithList {
     private String username;
+    private ParserFromHtml parser;
     private static final String passwordAdmin ="teamfirstyear";
+    private List<Batdongsan>batdongsanList;
     private Scanner sc=new Scanner(System.in);
 
     public String getUsername() {
@@ -20,11 +23,12 @@ public class Admin extends WorkWithList {
     public void setUsername(String username) {
         this.username = username;
     }
-
-
-    public Admin()  {
-        AdminWork();
+    public void SetListfromHTML(){
+        this.batdongsanList=parser.WriteHTMLtoList();
     }
+
+
+
     public void AdminWork()  {
         System.out.println("Chào teamfirstyear! ");
         int choice=0;
@@ -41,16 +45,18 @@ public class Admin extends WorkWithList {
                         System.out.println("Cần fix "+e);
                     }
                     finally {
-                        choice=1;
+                        System.out.println("Đã nạp xong!!");
                     }
                 break;
                 case 2:
-                    System.out.println("Hien thi du lieu: ");
-                    try {
-                        showList();
-                    }
-                    catch (Exception e){
+                    System.out.println("Hiển thị dữ liệu: ");
+                    try{
+                        ReadFileToList();
+                        showList(batdongsanList);
+                    }catch (Exception e){
                         System.out.println(e);
+                    }finally {
+                        System.out.println("Đẫ hiển thị! ");
                     }
             }
         }while(choice==3);

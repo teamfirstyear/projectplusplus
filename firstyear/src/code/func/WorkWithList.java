@@ -8,16 +8,14 @@ import java.util.List;
 
 public abstract class WorkWithList {
     private List<Batdongsan> batdongsanList;
-    private ParserFromHtml parser;
+
 
 
     public List<Batdongsan> getBatdongsanList(){
 
         return batdongsanList;
     }
-    public void SetListfromHTML(){
-        this.batdongsanList=parser.WriteHTMLtoList();
-    }
+
 
     public void setBatdongsanList(List<Batdongsan> batdongsanList) {
         this.batdongsanList = batdongsanList;
@@ -69,32 +67,18 @@ public abstract class WorkWithList {
 
     }
 
-    public void showList() throws IOException {
-        FileReader fileReader = null;
-        BufferedReader bufferedReader = null;
-        try {
-            fileReader = new FileReader("src/databasefromlink");
-            bufferedReader = new BufferedReader(fileReader);
-            String line = "";
-
-            if ((line = bufferedReader.readLine()) != null){
-                while ((line = bufferedReader.readLine()) != null){
-                    System.out.println(line);
-                }
-            }
-            else {
-                System.out.println("Chưa có dữ liệu. Hãy nạp dữ liệu trước.");
-            }
-
-
+    public void showList(List<Batdongsan> batdongsanList)  {
+        for(int i=0;i<batdongsanList.size();i++){
+            System.out.print("ID: "+batdongsanList.get(i).getiD());
+            System.out.print("//Trạng thái: "+batdongsanList.get(i).getStatus());
+            System.out.print("//Ngày rao:  "+batdongsanList.get(i).getDay());
+            System.out.print("//Giá trị: "+batdongsanList.get(i).getValue());
+            System.out.print("//Diện tích: "+batdongsanList.get(i).getArea());
+            System.out.print("//Người bán: "+batdongsanList.get(i).getSeller());
+            System.out.print("//Số điện thoại: "+batdongsanList.get(i).getPhonenum());
+            System.out.print("//Tên bất động sản "+batdongsanList.get(i).getAddress());
         }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        finally {
-            fileReader.close();
-            bufferedReader.close();
-        }
+
     }
 
 
