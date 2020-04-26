@@ -2,25 +2,20 @@ package code.func;
 
 import code.ob.Batdongsan;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class WorkWithList {
     private List<Batdongsan> batdongsanList;
-    private ParserFromHtml parser;
+
 
 
     public List<Batdongsan> getBatdongsanList(){
 
         return batdongsanList;
     }
-    public void SetListfromHTML(){
-        this.batdongsanList=parser.WriteHTMLtoList();
-    }
+
 
     public void setBatdongsanList(List<Batdongsan> batdongsanList) {
         this.batdongsanList = batdongsanList;
@@ -68,6 +63,20 @@ public abstract class WorkWithList {
             bufferedWriter.close();
             fileWriter.close();
 
+        }
+
+    }
+
+    public void showList(List<Batdongsan> batdongsanList)  {
+        for(int i=0;i<batdongsanList.size();i++){
+            System.out.print("ID: "+batdongsanList.get(i).getiD());
+            System.out.print("//Trạng thái: "+batdongsanList.get(i).getStatus());
+            System.out.print("//Ngày rao:  "+batdongsanList.get(i).getDay());
+            System.out.print("//Giá trị: "+batdongsanList.get(i).getValue());
+            System.out.print("//Diện tích: "+batdongsanList.get(i).getArea());
+            System.out.print("//Người bán: "+batdongsanList.get(i).getSeller());
+            System.out.print("//Số điện thoại: "+batdongsanList.get(i).getPhonenum());
+            System.out.print("//Tên bất động sản "+batdongsanList.get(i).getAddress());
         }
 
     }

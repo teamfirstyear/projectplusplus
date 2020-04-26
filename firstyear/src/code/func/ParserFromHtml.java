@@ -18,7 +18,7 @@ public ParserFromHtml(){
     public List<Batdongsan> WriteHTMLtoList(){
         List<Batdongsan> batdongsanList= new ArrayList<>();
         String url = "https://batdongsan.com.vn/nha-dat-ban-ha-noi/";
-        List<String> linkArray= listLink(url);
+        List<String> linkArray = listLink(url);
         for (int i=0;i<linkArray.size();i++){
             batdongsanList.add(parserclone(linkArray.get(i)));
         }
