@@ -1,5 +1,6 @@
 package code.ob;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Execute {
@@ -17,7 +18,11 @@ public class Execute {
                 ad.xacthuc();
             }else {
                 KhachHang client =new KhachHang();
-                client.khachHangWork();
+                try {
+                    client.khachHangWork();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
             System.out.println("Bạn có chắc muốn thoát không(y/n)?");
             danhtinh=sc.nextLine();
