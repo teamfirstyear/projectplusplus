@@ -6,32 +6,50 @@ import code.func.WorkWithList;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Admin extends WorkWithList {
-    private String username;
-    private ParserFromHtml parser;
     private static final String passwordAdmin ="teamfirstyear";
-    private List<Batdongsan>batdongsanList;
+    //private List<Batdongsan> batdongsanList;
     private Scanner sc=new Scanner(System.in);
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
     public void SetListfromHTML(){
-        this.batdongsanList=parser.WriteHTMLtoList();
+        ParserFromHtml parser=new ParserFromHtml();
+        setBatdongsanList(parser.WriteHTMLtoList());
     }
 
 
+    @Override
+    public List<Batdongsan> getBatdongsanList() {
+        return super.getBatdongsanList();
+    }
+
+    @Override
+    public void setBatdongsanList(List<Batdongsan> batdongsanList) {
+        super.setBatdongsanList(batdongsanList);
+    }
+
+    @Override
+    public List<Batdongsan> ReadFileToList() throws Exception {
+        return super.ReadFileToList();
+    }
+
+    @Override
+    public void Write_ListToFile(List<Batdongsan> batdongsanList) throws Exception {
+        super.Write_ListToFile(batdongsanList);
+    }
+
+    @Override
+    public void showList(List<Batdongsan> batdongsanList) {
+        super.showList(batdongsanList);
+    }
 
     public void AdminWork()  {
         System.out.println("Chào teamfirstyear! ");
         int choice=0;
+        List<Batdongsan> batdongsanList = new ArrayList<>() ;
         do {
             System.out.println("Nhập 1 để nạp dữ liệu \\n Nhập 2 để hiển thị dữ liệu \\n Nhập 3 để thoát");
             choice=sc.nextInt();
@@ -51,26 +69,33 @@ public class Admin extends WorkWithList {
                 case 2:
                     System.out.println("Hiển thị dữ liệu: ");
                     try{
-                        ReadFileToList();
-                        showList(batdongsanList);
+                        if(getBatdongsanList()==null){
+                            ReadFileToList();
+                        }
+                        showList(getBatdongsanList());
+
                     }catch (Exception e){
                         System.out.println(e);
                     }finally {
                         System.out.println("Đẫ hiển thị! ");
                     }
+                 break;
+                default:
+
+                    choice=3;
             }
-        }while(choice==3);
+        }while(choice!=3);
 
     }
     public void xacthuc()  {
         int timesLog =0;
         String password="";
         do{
-            System.out.println("Bạn còn "+(3-timesLog)+" nhập mật khẩu");
+            System.out.println("Bạn còn "+(3-timesLog)+" lần nhập mật khẩu");
             System.out.println("Nhập password: ");
             password=sc.nextLine();
             timesLog++;
-        }while(timesLog<3||password==passwordAdmin);
+        }while(!password.equals(passwordAdmin));
         if (timesLog==3){
             System.out.println("bạn không cơ hội ");
         }else{

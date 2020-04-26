@@ -9,8 +9,6 @@ import java.util.List;
 public abstract class WorkWithList {
     private List<Batdongsan> batdongsanList;
 
-
-
     public List<Batdongsan> getBatdongsanList(){
 
         return batdongsanList;
@@ -22,11 +20,11 @@ public abstract class WorkWithList {
     }
     public List<Batdongsan> ReadFileToList()throws Exception{
         List<Batdongsan> getBDS = new ArrayList<>();
-        FileReader reader = new FileReader("src/databasefromlink");
+        FileReader reader = new FileReader("src/code/databasefromlink");
         BufferedReader bufferedReader = new BufferedReader(reader);
         String  line ="";
         while((line=bufferedReader.readLine())!=null){
-            String []split = line.split(" ");
+            String []split = line.split("//");
             Batdongsan bdsan = new Batdongsan();
             bdsan.setiD(split[0]);
             bdsan.setDay(split[1]);
@@ -36,6 +34,7 @@ public abstract class WorkWithList {
             bdsan.setArea(split[5]);
             bdsan.setSeller(split[6]);
             bdsan.setPhonenum(split[7]);
+            getBDS.add(bdsan);
 
         }
         bufferedReader.close();
@@ -49,7 +48,7 @@ public abstract class WorkWithList {
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
-            fileWriter = new FileWriter("src/databasefromlink", false);
+            fileWriter = new FileWriter("src/code/databasefromlink", false);
             bufferedWriter = new BufferedWriter(fileWriter);
             for (int i = 0; i < batdongsanList.size(); i++) {
                 bufferedWriter.write(batdongsanList.get(i).toString());
@@ -77,6 +76,7 @@ public abstract class WorkWithList {
             System.out.print("//Người bán: "+batdongsanList.get(i).getSeller());
             System.out.print("//Số điện thoại: "+batdongsanList.get(i).getPhonenum());
             System.out.print("//Tên bất động sản "+batdongsanList.get(i).getAddress());
+            System.out.println();
         }
 
     }

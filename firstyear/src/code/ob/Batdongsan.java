@@ -77,13 +77,13 @@ public class Batdongsan {
     @Override
     public String toString() {
         return
-                 iD + " " +
-                 day + " " +
-                 address + " " +
-                 value + " " +
-                 area + " " +
-                 phonenum + " " +
-                 status + " " +
+                 iD + "//" +
+                 day + "//" +
+                 address + "//" +
+                 value + "//" +
+                 area + "//" +
+                 phonenum + "//" +
+                 status + "//" +
                  seller ;
     }
 }

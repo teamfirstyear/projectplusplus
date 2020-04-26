@@ -12,9 +12,6 @@ import java.util.List;
 
 public  class ParserFromHtml {
 
-public ParserFromHtml(){
-    WriteHTMLtoList();
-}
     public List<Batdongsan> WriteHTMLtoList(){
         List<Batdongsan> batdongsanList= new ArrayList<>();
         String url = "https://batdongsan.com.vn/nha-dat-ban-ha-noi/";
