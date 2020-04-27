@@ -20,7 +20,7 @@ public abstract class WorkWithList {
     }
     public List<Batdongsan> ReadFileToList()throws Exception{
         List<Batdongsan> getBDS = new ArrayList<>();
-        FileReader reader = new FileReader("src/code/databasefromlink");
+        FileReader reader = new FileReader("databasefromlink");
         BufferedReader bufferedReader = new BufferedReader(reader);
         String  line ="";
         while((line=bufferedReader.readLine())!=null){
@@ -48,7 +48,7 @@ public abstract class WorkWithList {
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
-            fileWriter = new FileWriter("src/code/databasefromlink", false);
+            fileWriter = new FileWriter("databasefromlink", false);
             bufferedWriter = new BufferedWriter(fileWriter);
             for (int i = 0; i < batdongsanList.size(); i++) {
                 bufferedWriter.write(batdongsanList.get(i).toString());
