@@ -36,10 +36,6 @@ public class KhachHang extends WorkWithList {
         this.phonecl = phonecl;
     }
 
-
-    //    public KhachHang(){
-//        khachHangWork();
-//    }
     public void khachHangWork() throws IOException {
         KhachHang khachHang = new KhachHang();
         Scanner sc = new Scanner(System.in);
