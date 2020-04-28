@@ -15,6 +15,9 @@ public class Batdongsan {
     }
 
     public void setiD(String iD) {
+        if(iD.equals("")){
+            iD="no information";
+        }
         this.iD = iD;
     }
 
@@ -23,6 +26,9 @@ public class Batdongsan {
     }
 
     public void setDay(String day) {
+        if(day.equals("")){
+            day="no information";
+        }
         this.day = day;
     }
 
@@ -31,6 +37,9 @@ public class Batdongsan {
     }
 
     public void setAddress(String address) {
+        if(address.equals("")){
+            address="no information";
+        }
         this.address = address;
     }
 
@@ -39,6 +48,9 @@ public class Batdongsan {
     }
 
     public void setValue(String value) {
+        if(value.equals("")){
+            value="no information";
+        }
         this.value = value;
     }
 
@@ -47,6 +59,9 @@ public class Batdongsan {
     }
 
     public void setArea(String area) {
+        if(area.equals("")){
+            area="no information";
+        }
         this.area = area;
     }
 
@@ -55,6 +70,9 @@ public class Batdongsan {
     }
 
     public void setPhonenum(String phonenum) {
+        if(phonenum.equals("")){
+            phonenum="no information";
+        }
         this.phonenum = phonenum;
     }
 
@@ -63,6 +81,9 @@ public class Batdongsan {
     }
 
     public void setStatus(String status) {
+        if(status.equals("")){
+            status="no information";
+        }
         this.status = status;
     }
 
@@ -71,19 +92,22 @@ public class Batdongsan {
     }
 
     public void setSeller(String seller) {
+        if(seller.equals("")){
+            seller="no information";
+        }
         this.seller = seller;
     }
 
     @Override
     public String toString() {
         return
-                 iD + "//" +
-                 day + "//" +
-                 address + "//" +
-                 value + "//" +
-                 area + "//" +
-                 phonenum + "//" +
-                 status + "//" +
+                 iD + "??" +
+                 day + "??" +
+                 address + "??" +
+                 value + "??" +
+                 area + "??" +
+                 phonenum + "??" +
+                 status + "??" +
                  seller ;
     }
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class WorkWithList {
-    private List<Batdongsan> batdongsanList;
+    private List<Batdongsan> batdongsanList=null;
 
     public List<Batdongsan> getBatdongsanList(){
 
@@ -24,24 +24,23 @@ public abstract class WorkWithList {
         BufferedReader bufferedReader = new BufferedReader(reader);
         String  line ="";
         while((line=bufferedReader.readLine())!=null){
-            String []split = line.split("//");
+            String []split = line.split("\\?+");
             Batdongsan bdsan = new Batdongsan();
             bdsan.setiD(split[0]);
             bdsan.setDay(split[1]);
-            bdsan.setStatus(split[2]);
-            bdsan.setAddress(split[3]);
-            bdsan.setValue(split[4]);
-            bdsan.setArea(split[5]);
-            bdsan.setSeller(split[6]);
-            bdsan.setPhonenum(split[7]);
+            bdsan.setStatus(split[6]);
+            bdsan.setAddress(split[2]);
+            bdsan.setValue(split[3]);
+            bdsan.setArea(split[4]);
+            bdsan.setSeller(split[7]);
+            bdsan.setPhonenum(split[5]);
             getBDS.add(bdsan);
 
         }
         bufferedReader.close();
         reader.close();
-
-
-        return this.batdongsanList=getBDS;
+        setBatdongsanList(getBDS);
+        return getBDS;
     }
 
     public void Write_ListToFile(List<Batdongsan>batdongsanList)throws Exception{
@@ -67,16 +66,13 @@ public abstract class WorkWithList {
     }
 
     public void showList(List<Batdongsan> batdongsanList)  {
+        System.out.printf("%-10s%-12s%-60s%-15s%-18s%-23s%-15s%-20s\n","ID","Ngày rao","Tên Bất Động Sản",
+                "Giá trị","Diện tích","Người Rao","SĐT ","Địa Chỉ");
         for(int i=0;i<batdongsanList.size();i++){
-            System.out.print("ID: "+batdongsanList.get(i).getiD());
-            System.out.print("//Trạng thái: "+batdongsanList.get(i).getStatus());
-            System.out.print("//Ngày rao:  "+batdongsanList.get(i).getDay());
-            System.out.print("//Giá trị: "+batdongsanList.get(i).getValue());
-            System.out.print("//Diện tích: "+batdongsanList.get(i).getArea());
-            System.out.print("//Người bán: "+batdongsanList.get(i).getSeller());
-            System.out.print("//Số điện thoại: "+batdongsanList.get(i).getPhonenum());
-            System.out.print("//Tên bất động sản "+batdongsanList.get(i).getAddress());
-            System.out.println();
+                    System.out.printf("%-10s%-12s%-60s%-15s%-18s%-23s%-15s%-20s\n",batdongsanList.get(i).getiD(),
+                    batdongsanList.get(i).getDay(),batdongsanList.get(i).getAddress(), batdongsanList.get(i).getValue(),
+                    batdongsanList.get(i).getArea(),batdongsanList.get(i).getSeller(),batdongsanList.get(i).getPhonenum(),
+                    batdongsanList.get(i).getAddress());
         }
 
     }

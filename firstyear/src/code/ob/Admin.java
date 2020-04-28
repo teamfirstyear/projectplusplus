@@ -4,8 +4,7 @@ package code.ob;
 import code.func.ParserFromHtml;
 import code.func.WorkWithList;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -69,10 +68,13 @@ public class Admin extends WorkWithList {
                 case 2:
                     System.out.println("Hiển thị dữ liệu: ");
                     try{
-                        if(getBatdongsanList()==null){
-                            ReadFileToList();
+
+                        if(getBatdongsanList()==null && ReadFileToList().size()==0){
+                            System.out.println("WARNING!! Cần nạp dữ liệu vì Data  còn trống");
+                        }else{
+                            batdongsanList=ReadFileToList();
+                            showList(batdongsanList);
                         }
-                        showList(getBatdongsanList());
 
                     }catch (Exception e){
                         System.out.println(e);
@@ -95,7 +97,7 @@ public class Admin extends WorkWithList {
             System.out.println("Nhập password: ");
             password=sc.nextLine();
             timesLog++;
-        }while(!password.equals(passwordAdmin));
+        }while(!password.equals(passwordAdmin)&&timesLog!=3);
         if (timesLog==3){
             System.out.println("bạn không cơ hội ");
         }else{

@@ -4,14 +4,11 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Execute {
-    /*public Execute()  {
-        hienthi();
-    }*/
     public void hienthi()  {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Xin chào, bạn là: ");
         String danhtinh ="";
         do {
+            System.out.println("Xin chào, bạn là: ");
             danhtinh = sc.nextLine();
             if(danhtinh.trim().equalsIgnoreCase("admin")){
                 Admin ad= new Admin();
@@ -27,6 +24,6 @@ public class Execute {
             System.out.println("Bạn có chắc muốn thoát không(y/n)?");
             danhtinh=sc.nextLine();
         }while(!danhtinh.equalsIgnoreCase("y"));
-        System.out.println("Tạm biệt");
+        System.out.println("Tạm biệt!");
     }
 }
