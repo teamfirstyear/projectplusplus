@@ -45,12 +45,12 @@ public class Admin extends WorkWithList {
         super.showList(batdongsanList);
     }
 
-    public void AdminWork()  {
+    public String AdminWork(String danhtinh)  {
         System.out.println("Chào teamfirstyear! ");
         int choice=0;
         List<Batdongsan> batdongsanList = new ArrayList<>() ;
         do {
-            System.out.println("Nhập 1 để nạp dữ liệu \\n Nhập 2 để hiển thị dữ liệu \\n Nhập 3 để thoát");
+            System.out.println("Nhập 1 để nạp dữ liệu \\ Nhập 2 để hiển thị dữ liệu \\ Nhập 3 để quay lại \\ Nhập 4 để thoát");
             choice=sc.nextInt();
             sc.nextLine();
             switch (choice){
@@ -82,14 +82,18 @@ public class Admin extends WorkWithList {
                         System.out.println("Đẫ hiển thị! ");
                     }
                  break;
-                default:
-
+                case 3:
                     choice=3;
+                    danhtinh="n";
+                break;
+                default:
+                    choice=4;
+                    danhtinh="y";
             }
-        }while(choice!=3);
-
+        }while(choice!=3&&choice!=4);
+        return danhtinh;
     }
-    public void xacthuc()  {
+    public String xacthuc(String danhtinh)  {
         int timesLog =0;
         String password="";
         do{
@@ -100,8 +104,11 @@ public class Admin extends WorkWithList {
         }while(!password.equals(passwordAdmin)&&timesLog!=3);
         if (timesLog==3){
             System.out.println("bạn không cơ hội ");
+            danhtinh="y";
+            return danhtinh;
         }else{
-            AdminWork();
+            danhtinh=AdminWork(danhtinh);
+            return danhtinh;
         }
     }
 }

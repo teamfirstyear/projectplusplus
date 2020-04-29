@@ -12,7 +12,7 @@ public class Execute {
             danhtinh = sc.nextLine();
             if(danhtinh.trim().equalsIgnoreCase("admin")){
                 Admin ad= new Admin();
-                ad.xacthuc();
+                danhtinh=ad.xacthuc(danhtinh);
             }else {
                 KhachHang client =new KhachHang();
                 try {
@@ -21,9 +21,8 @@ public class Execute {
                     e.printStackTrace();
                 }
             }
-            System.out.println("Bạn có chắc muốn thoát không(y/n)?");
-            danhtinh=sc.nextLine();
         }while(!danhtinh.equalsIgnoreCase("y"));
-        System.out.println("Tạm biệt!");
+
+
     }
 }
