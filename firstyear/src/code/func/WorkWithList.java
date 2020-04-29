@@ -66,13 +66,19 @@ public abstract class WorkWithList {
     }
 
     public void showList(List<Batdongsan> batdongsanList)  {
-        System.out.printf("%-10s%-12s%-60s%-15s%-18s%-23s%-15s%-20s\n","ID","Ngày rao","Tên Bất Động Sản",
-                "Giá trị","Diện tích","Người Rao","SĐT ","Địa Chỉ");
+        System.out.printf("||%-10s%-12s%-58s%-56s%-15s%-18s%-25s%-10s||\n","ID","Ngày rao","Loại Bất Động Sản",
+                "Tên Bất Động Sản","Giá Trị","Diện TÍch","Người Rao","SĐT");
+        System.out.println("--------------------------------------------------------------------------------------------" +
+                "-------------------------------------------------------------------------------------------------------" +
+                "------");
         for(int i=0;i<batdongsanList.size();i++){
-                    System.out.printf("%-10s%-12s%-60s%-15s%-18s%-23s%-15s%-20s\n",batdongsanList.get(i).getiD(),
-                    batdongsanList.get(i).getDay(),batdongsanList.get(i).getAddress(), batdongsanList.get(i).getValue(),
-                    batdongsanList.get(i).getArea(),batdongsanList.get(i).getSeller(),batdongsanList.get(i).getPhonenum(),
-                    batdongsanList.get(i).getAddress());
+                    System.out.printf("||%-10s%-12s%-58s%-56s%-15s%-18s%-25s%-10s||\n",batdongsanList.get(i).getiD(),
+                    batdongsanList.get(i).getDay(),batdongsanList.get(i).getStatus(), batdongsanList.get(i).getAddress(), batdongsanList.get(i).getValue(),
+                    batdongsanList.get(i).getArea(),batdongsanList.get(i).getSeller(),batdongsanList.get(i).getPhonenum());
+                    System.out.println("--------------------------------------------------------------------------------------------" +
+                    "-------------------------------------------------------------------------------------------------------" +
+                    "------");
+
         }
 
     }

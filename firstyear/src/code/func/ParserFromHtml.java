@@ -28,9 +28,9 @@ public  class ParserFromHtml {
         String moreinf =html.selectFirst("div.prd-more-info").text();
         String[] giatitle =html.select("span.gia-title").text().split("Diện tích: ");
 
-        String seller=html.select("div#LeftMainContent__productDetail_contactName.right-content").text().replace("Tên liên lạc ","");
+        String seller=html.select("div#LeftMainContent__productDetail_contactName.right-content").text().replace("Tên liên lạc ","").trim();
 
-        String phonenum=html.select("div#LeftMainContent__productDetail_contactMobile.right-content").text().replace("Mobile ","");
+        String phonenum=html.select("div#LeftMainContent__productDetail_contactMobile.right-content").text().replace("Mobile ","").trim();
         String [] address =html.select("span.diadiem-title.mar-right-15").text().split(" tại ");
         String addresss =address[1];
         String status =html.selectFirst("div.right").text();
@@ -39,7 +39,12 @@ public  class ParserFromHtml {
 
         String iD =moreinf.substring(13,21);
         String day=moreinf.substring(70,80);
-
+        if(seller.contains("Bất Động Sản")){
+            seller=seller.replace("Bất Động Sản","BĐS");
+        }
+        if(phonenum.contains("_")){
+            phonenum=phonenum.replace("_","");
+        }
 
         result.setArea(area);
         result.setDay(day);
