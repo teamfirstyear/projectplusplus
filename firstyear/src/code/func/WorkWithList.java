@@ -67,7 +67,7 @@ public abstract class WorkWithList {
 
     public void showList(List<Batdongsan> batdongsanList)  {
         System.out.printf("||%-10s%-12s%-58s%-56s%-15s%-18s%-25s%-10s||\n","ID","Ngày rao","Loại Bất Động Sản",
-                "Tên Bất Động Sản","Giá Trị","Diện TÍch","Người Rao","SĐT");
+                "Tên Bất Động Sản","Giá Trị","Diện Tích","Người Rao","SĐT");
         System.out.println("--------------------------------------------------------------------------------------------" +
                 "-------------------------------------------------------------------------------------------------------" +
                 "------");

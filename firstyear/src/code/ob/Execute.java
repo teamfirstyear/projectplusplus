@@ -8,7 +8,7 @@ public class Execute {
         Scanner sc = new Scanner(System.in);
         String danhtinh ="";
         do {
-            System.out.println("Xin chào, bạn là: ");
+            System.out.println("Xin chào, bạn là:(admin/khach hang)? ");
             danhtinh = sc.nextLine();
             if(danhtinh.trim().equalsIgnoreCase("admin")){
                 Admin ad= new Admin();
